@@ -1,7 +1,7 @@
 
 ## Methodus.js
 
-**Version 1.0.15**
+**Version 1.0.15** | [NPM](https://www.npmjs.com/package/methodus) | [Github](https://github.com/Pamblam/Methodus)
 
 Named after Euler's work which includes 100 problems that Euler considers to illustrate his methods, and was, in all likelihood, part of the inspiration for Project Euler. Thus, the library is an arbitrary list of mathematical algorithms and helper functions that are useful for, among other things, solving the Project Euler problems.
 

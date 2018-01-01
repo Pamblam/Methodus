@@ -6,7 +6,8 @@ var greatestSubseqProduct = 0;
 
 new M().everySubsequence(seq, 13, (index, seq)=>{
 	if(seq.length !== 13) return;
-	var product = seq[0] * seq[1] * seq[2] * seq[3];
+	var product = 1;
+	seq.forEach(i=>product*=i);
 	if(product > greatestSubseqProduct) greatestSubseqProduct = product;
 });
 
