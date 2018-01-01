@@ -26,3 +26,5 @@ Create a new instance with `const m = new Methodus`. The constructor does not ac
  - **`m.primeFactors(1233)`** Will return n array containing the prime factorization of `1233`.
  - **`m.range(3,78)`** Will return an array of numbers ranging from `3` to `78`
  - **`m.smallestCommonMultiple(123, 32, 12, 32)`** Will return the smallest common multiple of all the arguments passed to it. You can pass as many arguments as you need.
+ - **`m.greatestCommonDivisor(123,1232)`** Will return the greatest common divisor of the two numbers passed to it.
+ - **`m.pythagoreanTripletFromCircumference(1000)`** Will generate a Pythagorean triplet for a triangle whose circumference is 1000.
