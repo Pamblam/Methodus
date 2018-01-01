@@ -30,7 +30,9 @@ module.exports = function(grunt) {
 					'src/everySubsequence.js',
 					'src/nthPrime.js',
 					'src/range.js',
-					'src/smallestCommonMultiple.js'
+					'src/smallestCommonMultiple.js',
+					'src/pythagoreanTripletFromCircumference.js',
+					'src/greatestCommonDivisor.js'
 				],
 				dest: 'Methodus.js',
 			},
