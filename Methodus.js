@@ -1,11 +1,11 @@
 /**
- * methodus - v1.0.20
+ * methodus - v1.0.25
  * A Math Library inspired by Project Euler
  * @author Pamblam
  */
 
 function Methodus(){
-	this.version = "1.0.20";
+	this.version = "1.0.25";
 }
 
 if(!!(typeof module !== 'undefined' && module.exports)) module.exports = Methodus;
@@ -57,20 +57,7 @@ Methodus.prototype.everySubsequence = function(seq, len, funct){
 };
 
 Methodus.prototype.nthPrime = function(n){
-	let primes = [2,3,5];
-    const isPrime = num => {
-      for(let n=0; n<primes.length; n++){
-        if(num===primes[n]) return true;
-        if(num%primes[n]===0) return false;
-      }
-      return true;
-    }
-    for(var i=3; primes.length<n; i++){
-      if(isPrime(i)){
-        if(primes.indexOf(i) === -1) primes.push(i);
-      } 
-    }
-    return primes.pop();
+	return this.getFirstNPrimes(n).pop();
 };
 
 Methodus.prototype.range = function(lowestInt, highestInt){
@@ -137,3 +124,40 @@ Methodus.prototype.greatestCommonDivisor = function(a, b) {
     }
     return y;
 };
+
+Methodus.prototype.firstNPrimes = function(n){
+	let primes = [2,3,5];
+    const isPrime = num => {
+      for(let n=0; n<primes.length; n++){
+        if(num===primes[n]) return true;
+        if(num%primes[n]===0) return false;
+      }
+      return true;
+    }
+    for(var i=3; primes.length<n; i++){
+      if(isPrime(i)){
+        if(primes.indexOf(i) === -1) primes.push(i);
+      } 
+    }
+    return primes;
+};
+
+Methodus.prototype.generatePrimes = function(funct){
+	let primes = [2,3,5];
+	for(var i=0; i<primes.length; i++)
+		if(false === funct(primes[i])) return;
+    const isPrime = num => {
+      for(let n=0; n<primes.length; n++){
+        if(num===primes[n]) return true;
+        if(num%primes[n]===0) return false;
+      }
+      return true;
+    };
+    for(var i=7; true; i++){
+		if(isPrime(i)){
+			if(primes.indexOf(i) === -1) primes.push(i);
+			if(false === funct(i)) return;
+		}
+    }
+};
+
