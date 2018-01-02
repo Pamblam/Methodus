@@ -1,11 +1,11 @@
 /**
- * methodus - v1.0.45
+ * methodus - v1.0.46
  * A Math Library inspired by Project Euler
  * @author Pamblam
  */
 
 function Methodus(){
-	this.version = "1.0.45";
+	this.version = "1.0.46";
 }
 
 if(!!(typeof module !== 'undefined' && module.exports)) module.exports = Methodus;
@@ -252,4 +252,11 @@ Methodus.prototype.collatzSequence = function(n){
 		seq.push(n);
 	}
 	return seq;
+};
+
+Methodus.prototype.binomialCoefficient = function(n, k){
+    var c = 1, x;
+    for (x = n-k+1; x <= n; x++) c *= x;
+    for (x = 1; x <= k; x++) c /= x;
+    return parseInt(c);
 };

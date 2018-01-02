@@ -41,7 +41,8 @@ module.exports = function(grunt) {
 					'src/everyLinearSubsequence.js',
 					'src/generateTriangleNumbers.js',
 					'src/addInts.js',
-					'src/collatzSequence.js'
+					'src/collatzSequence.js',
+					'src/binomialCoefficient.js'
 				],
 				dest: 'Methodus.js',
 			},
