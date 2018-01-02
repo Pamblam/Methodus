@@ -39,7 +39,8 @@ module.exports = function(grunt) {
 					'src/everyDescDiagSubsequence.js',
 					'src/everyAscDiagSubsequence.js',
 					'src/everyLinearSubsequence.js',
-					'src/generateTriangleNumbers.js'
+					'src/generateTriangleNumbers.js',
+					'src/addInts.js'
 				],
 				dest: 'Methodus.js',
 			},
