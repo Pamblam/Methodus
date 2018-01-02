@@ -1,11 +1,11 @@
 /**
- * methodus - v1.0.32
+ * methodus - v1.0.33
  * A Math Library inspired by Project Euler
  * @author Pamblam
  */
 
 function Methodus(){
-	this.version = "1.0.32";
+	this.version = "1.0.33";
 }
 
 if(!!(typeof module !== 'undefined' && module.exports)) module.exports = Methodus;
@@ -208,4 +208,12 @@ Methodus.prototype.everyLinearSubsequence = function(grid, len, funct){
 	this.everyVerticalSubsequence(grid, len, (x,y,a)=>funct(x,y,"vertical",a));
 	for(var y=0; y<grid.len; y++)
 		this.everySubsequence(grid[i], len, (x,a)=>funct(x,y,"horiz",a));
+};
+
+Methodus.prototype.generateTriangleNumbers = function(funct){
+	var t = 0, i;
+	for(i=1; true; i++){
+		t += i; 
+		if(false === funct(i, t)) return;	
+	}
 };
