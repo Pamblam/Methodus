@@ -10,10 +10,8 @@ Methodus.prototype.addInts = function(array){
 		for(var n=0; n<array.length; n++){
 			if(array[n][i]){
 				colSum += parseInt(array[n][i]);
-				console.log("adding: "+array[n][i]);
 			}
 		}
-		console.log("Column total: "+colSum);
 		colSum += carry;
 		carry = 0;
 		if(colSum > 9){
@@ -21,7 +19,6 @@ Methodus.prototype.addInts = function(array){
 			carry = parseInt(colSum.substr(0,colSum.length-1));
 			colSum = parseInt(colSum.substr(colSum.length-1));
 		}
-		console.log("Colsum: "+colSum+", Carry: "+carry);
 		sum.push(""+colSum)
 	}
 	if(carry > 0) sum.push(carry);
