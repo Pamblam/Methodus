@@ -1,11 +1,11 @@
 /**
- * methodus - v1.0.25
+ * methodus - v1.0.32
  * A Math Library inspired by Project Euler
  * @author Pamblam
  */
 
 function Methodus(){
-	this.version = "1.0.25";
+	this.version = "1.0.32";
 }
 
 if(!!(typeof module !== 'undefined' && module.exports)) module.exports = Methodus;
@@ -48,10 +48,10 @@ Methodus.prototype.count=function(array, needle) {
 };
 
 Methodus.prototype.everySubsequence = function(seq, len, funct){
-	var a = seq.split(''), n, i, subseq = [], e;
-	for(i=0; i<a.length; i++){
-		e = Math.min(a.length, i+len);
-		for(subseq = [], n=i; n<e; n++) subseq.push(a[n]);
+	var n, i, subseq = [], e;
+	for(i=0; i<seq.length; i++){
+		e = Math.min(seq.length, i+len);
+		for(subseq = [], n=i; n<e; n++) subseq.push(seq[n]);
 		funct(i, subseq);
 	}
 };
@@ -161,3 +161,51 @@ Methodus.prototype.generatePrimes = function(funct){
     }
 };
 
+
+
+Methodus.prototype.everyVerticalSubsequence = function(grid, len, funct){
+	var x, y, l, a;
+	for(y=0; y<grid.length; y++){
+		for(x=0; x<grid[y].length; x++){
+			a = [];
+			for(l=0; l<len; l++)
+				if(grid[y+l] && grid[y+l][x]) a.push(grid[y+l][x]);
+				else break;
+			funct(x, y, a);
+		}
+	}
+};
+
+Methodus.prototype.everyDescDiagSubsequence = function(grid, len, funct){
+	var x, y, l, a;
+	for(y=0; y<grid.length; y++){
+		for(x=0; x<grid[y].length; x++){
+			a = [];
+			for(l=0; l<len; l++)
+				if(grid[y+l] && grid[y+l][x+l]) a.push(grid[y+l][x+l]);
+				else break;
+			funct(x, y, a);
+		}
+	}
+};
+
+Methodus.prototype.everyAscDiagSubsequence = function(grid, len, funct){
+	var x, y, l, a;
+	for(y=grid.length; y--;){
+		for(x=0; x<grid[y].length; x++){
+			a = [];
+			for(l=0; l<len; l++)
+				if(grid[y-l] && grid[y-l][x+l]) a.push(grid[y-l][x+l]);
+				else break;
+			funct(x, y, a);
+		}
+	}
+};
+
+Methodus.prototype.everyLinearSubsequence = function(grid, len, funct){
+	this.everyAscDiagSubsequence(grid, len, (x,y,a)=>funct(x,y,"diag asc",a));
+	this.everyDescDiagSubsequence(grid, len, (x,y,a)=>funct(x,y,"diag desc",a));
+	this.everyVerticalSubsequence(grid, len, (x,y,a)=>funct(x,y,"vertical",a));
+	for(var y=0; y<grid.len; y++)
+		this.everySubsequence(grid[i], len, (x,a)=>funct(x,y,"horiz",a));
+};

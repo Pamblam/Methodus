@@ -34,7 +34,11 @@ module.exports = function(grunt) {
 					'src/pythagoreanTripletFromCircumference.js',
 					'src/greatestCommonDivisor.js',
 					'src/firstNPrimes.js',
-					'src/generatePrimes.js'
+					'src/generatePrimes.js',
+					'src/everyVerticalSubsequence.js',
+					'src/everyDescDiagSubsequence.js',
+					'src/everyAscDiagSubsequence.js',
+					'src/everyLinearSubsequence.js'
 				],
 				dest: 'Methodus.js',
 			},
