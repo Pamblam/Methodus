@@ -40,7 +40,8 @@ module.exports = function(grunt) {
 					'src/everyAscDiagSubsequence.js',
 					'src/everyLinearSubsequence.js',
 					'src/generateTriangleNumbers.js',
-					'src/addInts.js'
+					'src/addInts.js',
+					'src/collatzSequence.js'
 				],
 				dest: 'Methodus.js',
 			},

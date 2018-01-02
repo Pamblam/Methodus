@@ -1,11 +1,11 @@
 /**
- * methodus - v1.0.44
+ * methodus - v1.0.45
  * A Math Library inspired by Project Euler
  * @author Pamblam
  */
 
 function Methodus(){
-	this.version = "1.0.44";
+	this.version = "1.0.45";
 }
 
 if(!!(typeof module !== 'undefined' && module.exports)) module.exports = Methodus;
@@ -242,4 +242,14 @@ Methodus.prototype.addInts = function(array){
 	}
 	if(carry > 0) sum.push(carry);
 	return sum.reverse().join('');
+};
+
+Methodus.prototype.collatzSequence = function(n){
+	var seq = [n];
+	while(n>1){
+		if(n%2===0) n=n/2;
+		else n=n*3+1
+		seq.push(n);
+	}
+	return seq;
 };
