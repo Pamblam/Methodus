@@ -1,11 +1,11 @@
 /**
- * methodus - v1.0.54
+ * methodus - v1.0.56
  * A Math Library inspired by Project Euler
  * @author Pamblam
  */
 
 function Methodus(){
-	this.version = "1.0.54";
+	this.version = "1.0.56";
 }
 
 if(!!(typeof module !== 'undefined' && module.exports)) module.exports = Methodus;
