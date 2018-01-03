@@ -44,7 +44,8 @@ module.exports = function(grunt) {
 					'src/collatzSequence.js',
 					'src/binomialCoefficient.js',
 					'src/multiplyInts.js',
-					'src/powInts.js'
+					'src/powInts.js',
+					'src/numToEnglish.js'
 				],
 				dest: 'Methodus.js',
 			},
