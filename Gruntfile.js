@@ -45,7 +45,8 @@ module.exports = function(grunt) {
 					'src/binomialCoefficient.js',
 					'src/multiplyInts.js',
 					'src/powInts.js',
-					'src/numToEnglish.js'
+					'src/numToEnglish.js',
+					'src/maxTrianglePathSum.js'
 				],
 				dest: 'Methodus.js',
 			},
