@@ -42,7 +42,9 @@ module.exports = function(grunt) {
 					'src/generateTriangleNumbers.js',
 					'src/addInts.js',
 					'src/collatzSequence.js',
-					'src/binomialCoefficient.js'
+					'src/binomialCoefficient.js',
+					'src/multiplyInts.js',
+					'src/powInts.js'
 				],
 				dest: 'Methodus.js',
 			},
