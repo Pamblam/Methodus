@@ -1,11 +1,11 @@
 /**
- * methodus - v1.0.64
+ * methodus - v1.0.65
  * A Math Library inspired by Project Euler
  * @author Pamblam
  */
 
 function Methodus(){
-	this.version = "1.0.64";
+	this.version = "1.0.65";
 }
 
 if(!!(typeof module !== 'undefined' && module.exports)) module.exports = Methodus;
@@ -355,4 +355,10 @@ Methodus.prototype.factorial = function(n){
 	var f = 1;
 	for(; n>0; n--) f = this.multiplyInts(f, n);
 	return f;
+};
+
+Methodus.prototype.isAbundant = function(n){
+	var f = this.allFactors(n), i, s=0;
+	for(i=f.length-1; i--;) s+=f[i];
+	return s > n;
 };

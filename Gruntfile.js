@@ -47,7 +47,8 @@ module.exports = function(grunt) {
 					'src/powInts.js',
 					'src/numToEnglish.js',
 					'src/maxTrianglePathSum.js',
-					'src/factorial.js'
+					'src/factorial.js',
+					'src/isAbundant.js'
 				],
 				dest: 'Methodus.js',
 			},
