@@ -1,11 +1,11 @@
 /**
- * methodus - v1.0.67
+ * methodus - v1.0.70
  * A Math Library inspired by Project Euler
  * @author Pamblam
  */
 
 function Methodus(){
-	this.version = "1.0.67";
+	this.version = "1.0.70";
 }
 
 if(!!(typeof module !== 'undefined' && module.exports)) module.exports = Methodus;
@@ -369,4 +369,22 @@ Methodus.prototype.isAbundant = function(number) {
         }
     }
     return false;
+};
+
+Methodus.prototype.permute = function(arr, limit) {
+	var res = [], used = []
+	const p = input=>{
+		var i, ch;
+		for (i = 0; i < input.length; i++) {
+			ch = input.splice(i, 1)[0];
+			used.push(ch);
+			if (input.length == 0) res.push(used.slice());
+			if(limit && limit === res.length) return res;
+			p(input);
+			input.splice(i, 0, ch);
+			used.pop();
+		}
+		return res;
+	};
+	return p(arr);
 };
