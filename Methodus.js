@@ -1,11 +1,11 @@
 /**
- * methodus - v1.0.65
+ * methodus - v1.0.67
  * A Math Library inspired by Project Euler
  * @author Pamblam
  */
 
 function Methodus(){
-	this.version = "1.0.65";
+	this.version = "1.0.67";
 }
 
 if(!!(typeof module !== 'undefined' && module.exports)) module.exports = Methodus;
@@ -357,8 +357,16 @@ Methodus.prototype.factorial = function(n){
 	return f;
 };
 
-Methodus.prototype.isAbundant = function(n){
-	var f = this.allFactors(n), i, s=0;
-	for(i=f.length-1; i--;) s+=f[i];
-	return s > n;
+Methodus.prototype.isAbundant = function(number) {
+    var sum = 1;
+    var half = number / 2;
+    for (var i = 2; i <= half; i++) {
+        if (number % i === 0) {
+            sum += i;
+            if (sum > number) {
+                return true;
+            }
+        }
+    }
+    return false;
 };
