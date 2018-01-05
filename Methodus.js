@@ -1,11 +1,11 @@
 /**
- * methodus - v1.0.70
+ * methodus - v1.0.71
  * A Math Library inspired by Project Euler
  * @author Pamblam
  */
 
 function Methodus(){
-	this.version = "1.0.70";
+	this.version = "1.0.71";
 }
 
 if(!!(typeof module !== 'undefined' && module.exports)) module.exports = Methodus;
@@ -26,25 +26,25 @@ Methodus.prototype.primeFactors = function(n){
 	return o.sort((a,b)=>a-b);
 };
 
-Methodus.prototype.allFactors = function(n){
+Methodus.prototype.allFactors = function (n) {
 	var factors = [1, n],
 		lowestProduct = n,
 		highestMultiplier;
-	for(highestMultiplier = 1; lowestProduct >= highestMultiplier; highestMultiplier++){
-		if(n % highestMultiplier === 0){
+	for (highestMultiplier = 1; lowestProduct >= highestMultiplier; highestMultiplier++) {
+		if (n % highestMultiplier === 0) {
 			lowestProduct = n / highestMultiplier;
-			if(!~factors.indexOf(lowestProduct)) factors.push(lowestProduct);
-			if(!~factors.indexOf(highestMultiplier)) factors.push(highestMultiplier);
+			if (!~factors.indexOf(lowestProduct)) factors.push(lowestProduct);
+			if (!~factors.indexOf(highestMultiplier)) factors.push(highestMultiplier);
 		}
 	}
-	return factors.sort((a,b)=>a-b);
+	return factors.sort((a, b) => a - b);
 };
 
 Methodus.prototype.count=function(array, needle) {
-    var count = 0, i;
-    for (i = 0; i < this.length; i++)
-        if (array[i] === needle) count++;
-    return count;
+	var count = 0, i;
+	for (i = 0; i < this.length; i++)
+		if (array[i] === needle) count++;
+	return count;
 };
 
 Methodus.prototype.everySubsequence = function(seq, len, funct){
@@ -114,51 +114,47 @@ Methodus.prototype.pythagoreanTripletFromCircumference = function(circumference)
 };
 
 Methodus.prototype.greatestCommonDivisor = function(a, b) {
-    var y = 0, x = 0, temp;
-    if (a > b) { x = a; y = b; } 
+	var y = 0, x = 0, temp;
+	if (a > b) { x = a; y = b; } 
 	else { x = b; y = a; }
-    while (x % y !== 0) {
-        temp = x;
-        x = y;
-        y = temp % x;
-    }
-    return y;
+	while (x % y !== 0) {
+		temp = x;
+		x = y;
+		y = temp % x;
+	}
+	return y;
 };
 
-Methodus.prototype.firstNPrimes = function(n){
-	let primes = [2,3,5];
-    const isPrime = num => {
-      for(let n=0; n<primes.length; n++){
-        if(num===primes[n]) return true;
-        if(num%primes[n]===0) return false;
-      }
-      return true;
-    }
-    for(var i=3; primes.length<n; i++){
-      if(isPrime(i)){
-        if(primes.indexOf(i) === -1) primes.push(i);
-      } 
-    }
-    return primes;
-};
-
-Methodus.prototype.generatePrimes = function(funct){
-	let primes = [2,3,5];
-	for(var i=0; i<primes.length; i++)
-		if(false === funct(primes[i])) return;
-    const isPrime = num => {
-      for(let n=0; n<primes.length; n++){
-        if(num===primes[n]) return true;
-        if(num%primes[n]===0) return false;
-      }
-      return true;
-    };
-    for(var i=7; true; i++){
-		if(isPrime(i)){
-			if(primes.indexOf(i) === -1) primes.push(i);
-			if(false === funct(i)) return;
+Methodus.prototype.firstNPrimes = function (n) {
+	let primes = [2, 3, 5];
+	const isPrime = num => {
+		for (let n = 0; n < primes.length; n++) {
+			if (num === primes[n]) return true;
+			if (num % primes[n] === 0) return false;
 		}
-    }
+		return true;
+	};
+	for (var i = 3; primes.length < n; i++)
+		if (isPrime(i) && primes.indexOf(i) === -1) primes.push(i);
+	return primes;
+};
+
+Methodus.prototype.generatePrimes = function (funct) {
+	let primes = [2, 3, 5];
+	for (var i = 0; i < primes.length; i++) if (false === funct(primes[i])) return;
+	const isPrime = num => {
+		for (let n = 0; n < primes.length; n++) {
+			if (num === primes[n]) return true;
+			if (num % primes[n] === 0) return false;
+		}
+		return true;
+	};
+	for (var i = 7; true; i++) {
+		if (isPrime(i)) {
+			if (primes.indexOf(i) === -1) primes.push(i);
+			if (false === funct(i)) return;
+		}
+	}
 };
 
 
@@ -218,77 +214,74 @@ Methodus.prototype.generateTriangleNumbers = function(funct){
 	}
 };
 
-Methodus.prototype.addInts = function(array){
-	var sum = [], carry = 0, i, digits=0, colSum;
-	for(i=array.length; i--;){
-		array[i] = (""+array[i]).split('').reverse();
-		if(array[i].length > digits) digits = array[i].length;
+Methodus.prototype.addInts = function (array) {
+	var sum = [], carry = 0, i, digits = 0, colSum;
+	for (i = array.length; i--; ) {
+		array[i] = ("" + array[i]).split('').reverse();
+		if (array[i].length > digits) digits = array[i].length;
 	}
-	for(i=0; i<digits; i++){
+	for (i = 0; i < digits; i++) {
 		colSum = 0;
-		for(var n=0; n<array.length; n++){
-			if(array[n][i]){
-				colSum += parseInt(array[n][i]);
-			}
-		}
+		for (var n = 0; n < array.length; n++)
+			if (array[n][i]) colSum += parseInt(array[n][i]);
 		colSum += carry;
 		carry = 0;
-		if(colSum > 9){
-			colSum = (""+colSum);
-			carry = parseInt(colSum.substr(0,colSum.length-1));
-			colSum = parseInt(colSum.substr(colSum.length-1));
+		if (colSum > 9) {
+			colSum = ("" + colSum);
+			carry = parseInt(colSum.substr(0, colSum.length - 1));
+			colSum = parseInt(colSum.substr(colSum.length - 1));
 		}
-		sum.push(""+colSum)
+		sum.push("" + colSum)
 	}
-	if(carry > 0) sum.push(carry);
+	if (carry > 0) sum.push(carry);
 	return sum.reverse().join('');
 };
 
-Methodus.prototype.collatzSequence = function(n){
+Methodus.prototype.collatzSequence = function (n) {
 	var seq = [n];
-	while(n>1){
-		if(n%2===0) n=n/2;
-		else n=n*3+1
+	while (n > 1) {
+		if (n % 2 === 0) n = n / 2;
+		else n = n * 3 + 1
 		seq.push(n);
 	}
 	return seq;
 };
 
-Methodus.prototype.binomialCoefficient = function(n, k){
-    var c = 1, x;
-    for (x = n-k+1; x <= n; x++) c *= x;
-    for (x = 1; x <= k; x++) c /= x;
-    return parseInt(c);
+Methodus.prototype.binomialCoefficient = function (n, k) {
+	var c = 1, x;
+	for (x = n - k + 1; x <= n; x++) c *= x;
+	for (x = 1; x <= k; x++) c /= x;
+	return parseInt(c);
 };
 
 Methodus.prototype.multiplyInts = function(a, b) {
-    
+	
 	a = (""+a).split('').reverse();
-    b = (""+b).split('').reverse();
-    var result = [];
+	b = (""+b).split('').reverse();
+	var result = [];
 
-    for (var i = 0; a[i] >= 0; i++) {
-        for (var j = 0; b[j] >= 0; j++) {
-            if (!result[i + j]) {
-                result[i + j] = 0;
-            }
+	for (var i = 0; a[i] >= 0; i++) {
+		for (var j = 0; b[j] >= 0; j++) {
+			if (!result[i + j]) {
+				result[i + j] = 0;
+			}
 
-            result[i + j] += a[i] * b[j];
-        }
-    }
+			result[i + j] += a[i] * b[j];
+		}
+	}
 
-    for (var i = 0; result[i] >= 0; i++) {
-        if (result[i] >= 10) {
-            if (!result[i + 1]) {
-                result[i + 1] = 0;
-            }
+	for (var i = 0; result[i] >= 0; i++) {
+		if (result[i] >= 10) {
+			if (!result[i + 1]) {
+				result[i + 1] = 0;
+			}
 
-            result[i + 1] += parseInt(result[i] / 10);
-            result[i] %= 10;
-        }
-    }
+			result[i + 1] += parseInt(result[i] / 10);
+			result[i] %= 10;
+		}
+	}
 
-    return result.reverse().join('');
+	return result.reverse().join('');
 };
 
 Methodus.prototype.powInts = function(a, e){
@@ -358,17 +351,17 @@ Methodus.prototype.factorial = function(n){
 };
 
 Methodus.prototype.isAbundant = function(number) {
-    var sum = 1;
-    var half = number / 2;
-    for (var i = 2; i <= half; i++) {
-        if (number % i === 0) {
-            sum += i;
-            if (sum > number) {
-                return true;
-            }
-        }
-    }
-    return false;
+	var sum = 1;
+	var half = number / 2;
+	for (var i = 2; i <= half; i++) {
+		if (number % i === 0) {
+			sum += i;
+			if (sum > number) {
+				return true;
+			}
+		}
+	}
+	return false;
 };
 
 Methodus.prototype.permute = function(arr, limit) {
@@ -387,4 +380,14 @@ Methodus.prototype.permute = function(arr, limit) {
 		return res;
 	};
 	return p(arr);
+};
+
+Methodus.prototype.fibonacci = function (funct) {
+	var a = "1", b = "0", temp, i = 0;
+	while (++i) {
+		temp = a;
+		a = this.addInts([a, b]);
+		b = temp;
+		if (funct(i, b) === false) return;
+	}
 };

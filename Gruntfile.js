@@ -49,7 +49,8 @@ module.exports = function(grunt) {
 					'src/maxTrianglePathSum.js',
 					'src/factorial.js',
 					'src/isAbundant.js',
-					'src/permute.js'
+					'src/permute.js',
+					'src/fibonacci.js'
 				],
 				dest: 'Methodus.js',
 			},
