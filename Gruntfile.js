@@ -50,7 +50,8 @@ module.exports = function(grunt) {
 					'src/factorial.js',
 					'src/isAbundant.js',
 					'src/permute.js',
-					'src/fibonacci.js'
+					'src/fibonacci.js',
+					'src/divideInts.js'
 				],
 				dest: 'Methodus.js',
 			},
